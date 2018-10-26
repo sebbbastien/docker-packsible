@@ -7,4 +7,5 @@ RUN add-apt-repository universe
 RUN apt-add-repository ppa:ansible/ansible
 RUN apt update
 
-RUN apt --assume-yes install ansible packer
+RUN apt --assume-yes install ansible packer wget
+RUN wget https://github.com/jetbrains-infra/packer-builder-vsphere/releases/download/v2.0.1/packer-builder-vsphere-iso.linux
