@@ -1,9 +1,9 @@
-FROM golang:alpine
+FROM ubuntu:18.04
 
-ENV PACKER_DEV=1
+add-apt-repository universe
+apt-get update
+apt-get --assume-yes install software-properties-common
+apt-get update
 
-RUN apk add --update git bash openssl
-RUN go get github.com/mitchellh/gox
-RUN go get github.com/hashicorp/packer
-
-RUN apk add ansible
+apt-add-repository ppa:ansible/ansible
+apt-get --assume-yes install ansible packer
