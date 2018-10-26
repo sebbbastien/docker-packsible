@@ -8,8 +8,7 @@ RUN apt-add-repository ppa:ansible/ansible
 RUN apt update
 
 RUN apt --assume-yes install ansible packer wget
-RUN cd /root
-RUN wget https://github.com/jetbrains-infra/packer-builder-vsphere/releases/download/v2.0.1/packer-builder-vsphere-iso.linux
+WORKDIR /root
+RUN wget --quiet https://github.com/jetbrains-infra/packer-builder-vsphere/releases/download/v2.0.1/packer-builder-vsphere-iso.linux
 RUN chmod +x /root/packer-builder-vsphere-iso.linux
 
-WORKDIR /root
